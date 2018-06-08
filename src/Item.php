@@ -6,19 +6,19 @@ class Item
 {
 
     public $name;
-    public $sell_in;
+    public $sellIn;
     public $quality;
 
     function __construct($name, $sell_in, $quality)
     {
         $this->name    = $name;
-        $this->sell_in = $sell_in;
+        $this->sellIn  = $sell_in;
         $this->quality = $quality;
     }
 
     public function __toString()
     {
-        return "{$this->name}, {$this->sell_in}, {$this->quality}";
+        return "{$this->name}, {$this->sellIn}, {$this->quality}";
     }
 
 }
