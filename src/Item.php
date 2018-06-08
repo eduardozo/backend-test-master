@@ -13,13 +13,13 @@ class Item
      * Item constructor.
      *
      * @param $name
-     * @param $sell_in
+     * @param $sellIn
      * @param $quality
      */
-    function __construct($name, $sell_in, $quality)
+    function __construct($name, $sellIn, $quality)
     {
         $this->name    = $name;
-        $this->sellIn  = $sell_in;
+        $this->sellIn  = $sellIn;
         $this->quality = $quality;
     }
 
