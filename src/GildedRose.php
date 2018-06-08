@@ -7,6 +7,11 @@ class GildedRose
 
     private $items;
 
+    /**
+     * GildedRose constructor.
+     *
+     * @param $items
+     */
     function __construct($items)
     {
         $this->items = $items;
@@ -17,49 +22,18 @@ class GildedRose
         foreach ($this->items as $item) {
             switch ($item->name) {
                 case 'Aged Brie':
-                    $item->quality += 1;
-                    $item->sellIn  -= 1;
-
-                    if ($item->sellIn <= 0) {
-                        $item->quality += 1;
-                    }
-
-                    if ($item->quality > 50) {
-                        $item->quality = 50;
-                    }
+                    AgeBrie::updateQuality($item);
 
                     break;
                 case 'Backstage passes to a TAFKAL80ETC concert':
-                    $item->quality += 1;
-
-                    if ($item->sellIn <= 10) {
-                        $item->quality += 1;
-                    }
-                    if ($item->sellIn <= 5) {
-                        $item->quality += 1;
-                    }
-                    if ($item->quality > 50) {
-                        $item->quality = 50;
-                    }
-                    if ($item->sellIn <= 0) {
-                        $item->quality = 0;
-                    }
-
-                    $item->sellIn -= 1;
+                    Backstage::updateQuality($item);
 
                     break;
                 case 'Sulfuras, Hand of Ragnaros':
 
                     break;
                 default:
-                    $item->quality -= 1;
-                    $item->sellIn  -= 1;
-                    if ($item->sellIn < 0) {
-                        $item->quality -= 1;
-                    }
-                    if ($item->quality < 0) {
-                        $item->quality = 0;
-                    }
+                    ItemDefault::updateQuality($item);
 
                     break;
             }
